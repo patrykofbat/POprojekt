@@ -1,0 +1,9 @@
+#hBoxUp{
+    -fx-background-color: #66ccff;
+    -fx-border-color: black;
+    -fx-border-image-insets: 1px;
+}
+
+#root{
+     -fx-background: #b268ff;
+ }
