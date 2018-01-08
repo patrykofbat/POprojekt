@@ -10,6 +10,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -17,12 +19,9 @@ import javafx.util.Duration;
 
 public class MenuController {
 
-    @FXML
-    private ProgressBar progressBar;
 
     @FXML
     private Button btn;
-
 
 
     @FXML
@@ -38,33 +37,14 @@ public class MenuController {
 
     }
 
-
-
-
     public void initialize(){
-        start();
 
     }
 
 
-    public void start() {
-        Timeline task = new Timeline(
-                new KeyFrame(
-                        Duration.ZERO,
-                        new KeyValue(progressBar.progressProperty(), 0)
 
 
-                ),
-                new KeyFrame(
-                        Duration.seconds(1),
-                        new KeyValue(progressBar.progressProperty(), 1),
-                        new KeyValue(btn.styleProperty(), "visibility:visible;")
 
-                )
-        );
-        task.playFromStart();
-
-    }
 
 
 

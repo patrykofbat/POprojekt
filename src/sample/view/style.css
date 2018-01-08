@@ -1,9 +1,48 @@
 #hBoxUp{
-    -fx-background-color: #66ccff;
-    -fx-border-color: black;
+    -fx-background-color: rgb(64, 64, 64);
+    -fx-border-color: white;
+    -fx-border-width: 2px;
     -fx-border-image-insets: 1px;
 }
 
 #root{
-     -fx-background: #b268ff;
+     -fx-background: white;
  }
+
+#anchor{
+    -fx-background-image: url("backgroundMenu.jpg");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 100%;
+    -fx-background-position: center;
+}
+
+.btn{
+
+    -fx-background-color: #e7e7e7;
+    -fx-border-color: black;
+    -fx-border-width: 2px;
+    -fx-text-fill: black;
+    -fx-padding: 15px 32px;
+    -fx-text-align: center;
+    -fx-text-decoration: none;
+    -fx-display: inline-block;
+    -fx-font-size: 13px;
+}
+
+.btn:hover{
+    -fx-background-color: black;
+    -fx-border-color: white;
+    -fx-border-width: 2px;
+    -fx-text-fill: white;
+    -fx-padding: 15px 32px;
+    -fx-text-align: center;
+    -fx-text-decoration: none;
+    -fx-display: inline-block;
+    -fx-font-size: 13px;
+
+}
+
+#hBoxUp{
+    -fx-padding: 0 0 0 20;
+
+}
