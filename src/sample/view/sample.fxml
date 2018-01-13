@@ -5,13 +5,17 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 
-<AnchorPane fx:id="root" prefHeight="600" prefWidth="800" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.Controller">
-    <HBox fx:id="hBoxUp" alignment="CENTER_LEFT" prefHeight="100" prefWidth="800" spacing="50">
+<?import javafx.scene.text.Text?>
+<AnchorPane fx:id="root" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.Controller">
+    <HBox fx:id="hBoxUp" nodeOrientation="LEFT_TO_RIGHT" spacing="50">
 
-        <Button fx:id="btnNext" alignment="BASELINE_RIGHT" onMouseClicked="#nextModel" styleClass="btn" text="START" textAlignment="CENTER" />
+        <Button fx:id="btnNext" alignment="BASELINE_RIGHT" onMouseClicked="#nextModel" styleClass="btn" text="NEXT MODEL" textAlignment="CENTER" />
       <opaqueInsets>
          <Insets left="10.0" />
       </opaqueInsets>
+        <Text fx:id="text" text="Czerwony kolor matki - matka stwierdza że jest nie jest w trójkcie
+        Zielony kolor matki - matka stwierdza że jest w trójkącie"/>
+
 
     </HBox>
 

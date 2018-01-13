@@ -15,6 +15,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
+import sample.Main;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -23,8 +24,6 @@ import java.util.List;
 import java.util.Random;
 
 public class Pool {
-    private static final int HEIGHT = 600;
-    private static final int WIDTH = 800;
     private Pane root;
     private HBox hBox;
     private MotherRobot motherRobot;
@@ -49,15 +48,11 @@ public class Pool {
 
 
     public void generateMother(){
-        MotherRobot motherRobot = new MotherRobot(7 + (int)(Math.random() * 786), 107 + (int)(Math.random() * 486), this.hBox);
+        double y = Main.MAX_HEIGHT/4 + (Math.random() * 2 *Main.MAX_HEIGHT/4);
+        double x = Main.MAX_WIDTH/7 + (Math.random() * 4 * Main.MAX_WIDTH/7);
+        MotherRobot motherRobot = new MotherRobot( x, y, this.hBox);
         this.motherRobot = motherRobot;
-        Text text = new Text("M");
-        text.setFont(Font.font("Werdana", FontWeight.BOLD,14));
-        text.setX(motherRobot.getXPosition()-7);
-        text.setY(motherRobot.getYPosition()+4);
-        text.toFront();
         this.root.getChildren().add(motherRobot.getShape());
-        this.root.getChildren().add(text);
     }
 
     /**
@@ -66,17 +61,17 @@ public class Pool {
      * you goona generate per div
      * */
     private void generateRobots(int density) {
-        int xStep = WIDTH / 7;
-        int yStep = HEIGHT / 7;
+        double xStep = Main.MAX_WIDTH / 7;
+        double yStep = Main.MAX_HEIGHT / 7;
 
-        for (int i = 107; i < HEIGHT; i += yStep) {
-            for (int j = 7; j < WIDTH; j += xStep) {
+        for (double i = 0; i < Main.MAX_HEIGHT; i += yStep) {
+            for (double j = 0; j < Main.MAX_WIDTH; j += xStep) {
                 for (int k = 0; k < density; k++) {
-                    int y = i + (int) (Math.random() * yStep);
-                    int x = j + (int) (Math.random() * xStep);
-                    Robot robot = new Robot((x > 793 ? 793 : x), (y > 593 ? 593 : y), this.hBox);
+                    double y = i + (Math.random() * yStep);
+                    double x = j + (Math.random() * xStep);
+                    Robot robot = new Robot(x, y, this.hBox);
                     this.robotsList.add(robot);
-                    this.root.getChildren().add(robot.getShape());
+//                    this.root.getChildren().add(robot.getShape());
                     robot.getShape().toBack();
                 }
             }
@@ -89,11 +84,11 @@ public class Pool {
      * rendering grid
      * */
     private void renderGrid(){
-        int xStep = WIDTH / 7;
-        int yStep = HEIGHT / 7;
+        double xStep = Main.MAX_WIDTH / 7;
+        double yStep = Main.MAX_HEIGHT / 7;
 
         // loops generate grid
-        for(int i = 100; i < HEIGHT; i += yStep){
+        for(double i = Main.MAX_HEIGHT/8; i < Main.MAX_HEIGHT; i += yStep){
             Line line = new Line();
 
             line.setStroke(Color.BLACK);
@@ -107,7 +102,7 @@ public class Pool {
             this.root.getChildren().add(line);
         }
 
-        for(int j = 0; j < WIDTH; j += xStep){
+        for(int j = 0; j < Main.MAX_WIDTH; j += xStep){
             Line line = new Line();
 
             line.setStroke(Color.BLACK);
@@ -132,9 +127,21 @@ public class Pool {
         int j =0;
 
         for(int i=0; i<3; i++){
+            double x = 0;
+            double y = 0;
+            if(i == 0) {
+                y = Main.MAX_HEIGHT / 4 + (Math.random() *3 * Main.MAX_HEIGHT / 4);
+                x = 2* Main.MAX_WIDTH / 7 + (Math.random()  * Main.MAX_WIDTH / 20);
+            }
+            if(i == 1){
+                y = Main.MAX_HEIGHT / 4 + (Math.random()  * Main.MAX_HEIGHT / 10);
+                x = Main.MAX_WIDTH / 7 + (Math.random() * 4 * Main.MAX_WIDTH / 7);
+            }
 
-            int y = 107 + (int)(Math.random() * 486);
-            int x = 7 + (int)(Math.random() * 786);
+            if(i == 2){
+                y = Main.MAX_HEIGHT / 4 + (Math.random() * 3 * Main.MAX_HEIGHT / 4);
+                x = 4 * Main.MAX_WIDTH / 7 + (Math.random() * Main.MAX_WIDTH / 20);
+            }
             Satelite satelite = new Satelite(x, y, colors.get(i));
 
             coordinate[j] = x;
@@ -148,11 +155,11 @@ public class Pool {
 
         }
         Polygon polygon = new Polygon();
+        polygon.setStroke(Color.WHITE);
 
         for(double point : coordinate)
             polygon.getPoints().add(point);
 
-        polygon.setStroke(Color.BLACK);
         polygon.setFill(Color.rgb(255, 255, 255, .7));
         polygon.setMouseTransparent(true);
 
@@ -164,10 +171,12 @@ public class Pool {
 
 
     public void show(){
-        renderGrid();
-        generateRobots(50);
+//        renderGrid();
+        generateRobots(500);
         renderSatelite();
         generateMother();
+        this.motherRobot.getShape().toFront();
+
     }
 
     public MotherRobot getMotherRobot() {

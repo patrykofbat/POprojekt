@@ -3,8 +3,8 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="anchor" prefHeight="600" prefWidth="800" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.MenuController">
+<AnchorPane fx:id="anchor" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.MenuController">
    <children>
-      <Button fx:id="btn" layoutX="469.0" layoutY="175.0" mnemonicParsing="false" onMouseClicked="#handleSubmit" styleClass="btn" text="START" />
+      <Button fx:id="btn" layoutX="760.0" layoutY="163.0" mnemonicParsing="false" onMouseClicked="#handleSubmit" styleClass="btn" text="START" />
    </children>
 </AnchorPane>

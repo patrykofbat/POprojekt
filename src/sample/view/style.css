@@ -1,12 +1,17 @@
 #hBoxUp{
-    -fx-background-color: rgb(64, 64, 64);
+    -fx-background-color: rgb(182, 218, 255);
     -fx-border-color: white;
     -fx-border-width: 2px;
     -fx-border-image-insets: 1px;
+    -fx-padding: 0 0 0 20;
+
+
 }
 
 #root{
-     -fx-background: white;
+    -fx-pref-width: 100%;
+    -fx-pref-height: 100%;
+     -fx-background: #676767;
  }
 
 #anchor{
@@ -42,7 +47,7 @@
 
 }
 
-#hBoxUp{
-    -fx-padding: 0 0 0 20;
+#text{
+    -fx-font-size: 16px;
 
 }

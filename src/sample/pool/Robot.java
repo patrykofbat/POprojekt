@@ -22,26 +22,26 @@ public class Robot implements Drawable{
     private HBox hBox;
     private Circle circle;
     private Polygon polygon;
-    private int xPosition;
-    private int yPosition;
+    private double xPosition;
+    private double yPosition;
     private Node text;
     private double[] signal;
 
-    public int getXPosition() {
+    public double getXPosition() {
         return xPosition;
     }
 
-    public int getYPosition() {
+    public double getYPosition() {
         return yPosition;
     }
 
 
-    public Robot(int xPosition, int yPosition, HBox hBox){
+    public Robot(double xPosition, double yPosition, HBox hBox){
         this.signal = new double[3];
         this.hBox = hBox;
         this.yPosition = yPosition;
         this.xPosition = xPosition;
-        this.circle = new Circle(6, Color.SKYBLUE);
+        this.circle = new Circle(6, Color.GRAY );
 
     }
 
@@ -58,7 +58,6 @@ public class Robot implements Drawable{
     public Shape getShape() {
         this.circle.setCenterX(xPosition);
         this.circle.setCenterY(yPosition);
-        this.circle.toFront();
 
         this.circle.setStroke(Color.BLACK);
         this.circle.setStrokeWidth(2);

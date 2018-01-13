@@ -20,7 +20,7 @@ public class RSSISignal {
         int j = 0;
         for(Satelite satelitePrim:satelites){
             double distance = Math.sqrt(Math.pow(motherRobot.getXPosition() - satelitePrim.getXPosition(),2)+Math.pow(motherRobot.getYPosition()-satelitePrim.getYPosition(), 2));
-            signalsPrim[j] = 400 - 10 * 10 * Math.log10(distance);
+            signalsPrim[j] = 400 - 100*Math.log10(distance);
             j++;
         }
         motherRobot.setSignals(signalsPrim);
@@ -31,7 +31,7 @@ public class RSSISignal {
             int i = 0;
             for(Satelite satelite:satelites){
                 double distance = Math.sqrt(Math.pow(robot.getXPosition() - satelite.getXPosition(),2)+Math.pow(robot.getYPosition()-satelite.getYPosition(), 2));
-                signals[i] = 400 - 10 * 10 * Math.log10(distance);
+                signals[i] = 400 - 100*Math.log10(distance);
                 i++;
             }
             robot.setSignals(signals);

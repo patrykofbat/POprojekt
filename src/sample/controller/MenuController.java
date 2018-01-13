@@ -12,12 +12,17 @@ import javafx.scene.control.ProgressBar;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import sample.Main;
 
 
 public class MenuController {
+
+    @FXML
+    private AnchorPane anchor;
 
 
     @FXML
@@ -29,7 +34,7 @@ public class MenuController {
         Stage stage = (Stage)btn.getScene().getWindow();
         try {
             Pane root = FXMLLoader.load(getClass().getResource("../view/sample.fxml"));
-            stage.setScene(new Scene(root, 800, 600));
+            stage.setScene(new Scene(root, Main.MAX_WIDTH, Main.MAX_HEIGHT));
         }
         catch (Exception e){
 
@@ -38,6 +43,7 @@ public class MenuController {
     }
 
     public void initialize(){
+        anchor.setMaxSize(Main.MAX_WIDTH, Main.MAX_HEIGHT);
 
     }
 

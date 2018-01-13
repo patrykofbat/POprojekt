@@ -12,19 +12,19 @@ import javafx.util.Duration;
 public class Satelite implements Drawable {
 
     private Circle circle;
-    private int xPosition;
-    private int yPosition;
+    private double xPosition;
+    private double yPosition;
 
-    public int getXPosition() {
+    public double getXPosition() {
         return xPosition;
     }
 
-    public int getYPosition() {
+    public double getYPosition() {
         return yPosition;
     }
 
 
-    public Satelite(int xPosition, int yPosition, Paint color){
+    public Satelite(double xPosition, double yPosition, Paint color){
         this.xPosition = xPosition;
         this.yPosition = yPosition;
         this.circle = new Circle(10, color);
@@ -42,7 +42,7 @@ public class Satelite implements Drawable {
         return this.circle;
     }
 
-    public Circle addSateliteSignal(int x, int y){
+    public Circle addSateliteSignal(double x, double y){
         Circle circle = new Circle(10);
         circle.setCenterX(x);
         circle.setCenterY(y);
